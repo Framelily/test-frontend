@@ -1,57 +1,47 @@
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Card from './components/Card';
+import CardPlaceholder from './components/CardPlaceholder';
+import { getPokemon, getAllPokemon } from './services/pokemon';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  const htmlList = '';
-  for (let index = 1; index <= 104; index++) {
-    fetch("https://pokeapi.co/api/v2/pokemon/"+index)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          // htmlList = htmlList + `<div className="col-md-4 col-lg-2">
-          //                               <img src=${result.sprites.front_default} />
-          //                               <h6>${result.name}</h6>
-          //                             </div>`;
-                // console.log(htmlList);
-        },
-        (error) => {
-        }
-      )
+  const [pokemonData, setPokemonData] = useState([])
+  const [loading, setLoading] = useState(true);
+  const initialURL = 'https://pokeapi.co/api/v2/pokemon?limit=104'
+
+  useEffect(() => {
+    async function fetchData() {
+      let response = await getAllPokemon(initialURL)
+      await loadPokemon(response.results);
+      setLoading(false);
+    }
+    fetchData();
+  }, [])
+
+  const loadPokemon = async (data) => {
+    let _pokemonData = await Promise.all(data.map(async pokemon => {
+      let pokemonRecord = await getPokemon(pokemon)
+      return pokemonRecord
+    }))
+    setPokemonData(_pokemonData);
   }
-  // document.getElementById("listPokemon").innerHTML = htmlList;
+
+  const numberPlaceholder = [];
+  for (let index = 1; index <= 104; index++) {
+    numberPlaceholder.push(index);
+  }
 
   return (
     <div>
-      {/* menu */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white">
-        <a className="navbar-brand" href="#">Test Frontend</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Pokemon</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Function 1</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Function 2</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Function 3</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Header/>
+      <Menu/>
+      
 
       {/* form */}
-      <div className="container-custom">
+      {/* <div className="container-custom">
         <form className="form-custom">
           <h5 className="text-center mb-4">Test Form and validation</h5>
           <div className="form-group">
@@ -85,13 +75,27 @@ function App() {
           </div>
           <button type="submit" className="btn btn-primary w-100">Submit</button>
         </form>
-      </div>
+      </div> */}
 
       {/* pokemon */}
-      <div className="container">
-        <div className="pokemon">
+      <div className="container mb-3 mt-5">
+        <h5 class="text-center">Fetch Pokemon's data จาก <a href="https://pokeapi.co/api/v2">https://pokeapi.co/api/v2</a></h5>
+        <div className="pokemon mt-3">
           <div className="col">
-            <div className="row" id="listPokemon">
+            <div className="form-row">
+              {loading ? (
+                <>
+                  {numberPlaceholder.map((number, i) => {
+                    return <CardPlaceholder/>
+                  })}
+                </>
+              ) : (
+                <>
+                  {pokemonData.map((pokemon, i) => {
+                    return <Card key={i} pokemon={pokemon} />
+                  })}
+                </>
+              )}
             </div>
           </div>
         </div>

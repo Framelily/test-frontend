@@ -7,8 +7,53 @@
 
 body {
   padding: 0;
-  margin: 15px;
-  background-color: #f7f7f7;
+  margin: 0;
+  background-color: #ebf2fe;
+}
+
+header {
+  background-color: #201f2d;
+  color: white;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu {
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.menu a.active{
+  background-color: #2563eb;
+  color: white;
+}
+
+.menu a:hover{
+  background-color: #2563eb;
+  color: white;
 }
 
 .form-custom {
@@ -25,8 +70,35 @@ body {
   justify-content: center
 }
 
-.pokemon {
-  background-color: white;
+.pokemon .card{
+  text-align: center;
+  border: 0;
+  border-radius: 10px;
   padding: 15px;
-  margin-top: 15px;
+}
+
+.pokemon .card-img {
+  background-color: #ebf2fe;
+  padding: 10px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.pokemon .card-placeholder-img {
+  background-color: #d4d3d8;
+  padding: 10px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.card-placeholder-name {
+  background-color: #d4d3d8;
+  width: 100%;
+  height: 15px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
