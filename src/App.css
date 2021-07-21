@@ -62,7 +62,7 @@ header {
   margin-top: 15px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.12);
-  width: 400px;
+  width: 600px;
 }
 
 .container-custom {
@@ -101,4 +101,19 @@ header {
   height: 15px;
   border-radius: 20px;
   margin-top: 10px;
+}
+
+.border-red {
+  border-color: red;
+}
+
+.result {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.result p {
+  font-size: 14px;
+  margin-bottom: 5px;
 }
