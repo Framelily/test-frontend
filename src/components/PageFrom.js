@@ -111,7 +111,7 @@ function PageFrom() {
           <h5 className="text-center mb-4">From and validation</h5>
             <div className="col">
               <div className="form-row">
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="firstName" className="mb-0">
                     First Name
                   </label>
@@ -127,7 +127,7 @@ function PageFrom() {
                     })}
                   </div>
                 </div>
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="lastName" className="mb-0">Last Name</label>
                 </div>
                 <div className="col-lg-9 mb-3">
@@ -141,7 +141,7 @@ function PageFrom() {
                     })}
                   </div>
                 </div>
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="email" className="mb-0">E-mail</label>
                 </div>
                 <div className="col-lg-9 mb-3">
@@ -155,7 +155,7 @@ function PageFrom() {
                     })}
                   </div>
                 </div>
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="password" className="mb-0">Password</label>
                 </div>
                 <div className="col-lg-9 mb-3">
@@ -169,7 +169,7 @@ function PageFrom() {
                     })}
                   </div>
                 </div>
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="verifyPassword">Verify Password</label>
                 </div>
                 <div className="col-lg-9 mb-3">
@@ -183,7 +183,7 @@ function PageFrom() {
                     })}
                   </div>
                 </div>
-                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-3">
+                <div className="col-lg-3 d-flex justify-content-lg-end align-items-center mb-1 mb-lg-3">
                   <label htmlFor="gender" className="mb-0">Gender</label>
                 </div>
                 <div className="col-lg-9 mb-3">
