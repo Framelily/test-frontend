@@ -4,6 +4,7 @@ import PagePokemon from './components/PagePokemon';
 import PageFunction from './components/PageFunction';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import cartoon from './cartoon.png';
 
 function App() {
   // console.log(useLocation());
@@ -26,6 +27,7 @@ function App() {
           </Switch>
         </div>
       </BrowserRouter>
+      <img src={cartoon} className="cartoon"/>
     </div>
   );
 }

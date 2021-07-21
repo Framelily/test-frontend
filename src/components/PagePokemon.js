@@ -17,11 +17,11 @@ function PagePokemon() {
   }, [])
 
   const loadPokemon = async (data) => {
-    let _pokemonData = await Promise.all(data.map(async pokemon => {
+    let pokemonDatas = await Promise.all(data.map(async pokemon => {
       let pokemonRecord = await getPokemon(pokemon)
       return pokemonRecord
     }))
-    setPokemonData(_pokemonData);
+    setPokemonData(pokemonDatas);
   }
 
   const getPokemon = ({url}) => {
@@ -46,6 +46,7 @@ function PagePokemon() {
   for (let index = 1; index <= 104; index++) {
     numberPlaceholder.push(index);
   }
+  
   return (
     <div>
       {/* pokemon */}

@@ -131,3 +131,10 @@ header {
 pre {
   color: white;
 }
+
+.cartoon {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}

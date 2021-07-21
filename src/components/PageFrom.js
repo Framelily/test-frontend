@@ -1,6 +1,5 @@
 import React ,{ useState } from 'react';
 
-
 function PageFrom() {
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");

@@ -30,12 +30,8 @@ function PageFunction() {
       }
     }
   });
-
-  console.log(shopOneData);
   shopOneData = shopOneData.slice(1);
-
-  const test = [1,2,3,4,5]
-
+  
   return (
     <div>
       <div className="shopOne">
