@@ -138,3 +138,10 @@ pre {
   right: 0;
   z-index: -1;
 }
+
+@media (max-width: 575.98px) {
+  .menu a {
+    font-size: 16px;
+    margin-left: 0px;
+  }
+}
