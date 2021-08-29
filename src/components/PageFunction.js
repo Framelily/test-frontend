@@ -1,41 +1,35 @@
 import React from 'react';
-import Data from './data.json';
+import jsonData from './data.json';
 
 function PageFunction() {
-  const shopData = []
-  for (let i = 0; i < Data.length; i++) {
-    if (Data[i].shop == 1) {
-      for (let x = 0; x < Data[i].data.length; x++) {
-        let product = {}
-        product.id = Data[i].data[x].id
-        product.name = Data[i].data[x].name
-        product.price = Data[i].data[x].price
-        product.amount = Data[i].data[x].order.amount
-        shopData.push(product)
+
+  const orders = jsonData
+    .filter(({shop})=> shop === 1)
+    .map(({data})=>
+      data.map(({id,name,price,order})=>({
+        id,
+        name,
+        price,
+        amount : order.amount
+      }))
+    )
+
+  const data = []
+  for (const order of orders) {
+    for (const food of order) {
+      let find = data.find(({ id }) => food.id === id)
+      if (find) {
+        find.amount += food.amount
+      } else {
+        data.push(food)
       }
     }
   }
-
-  let shopOneData = []
-  shopData.forEach((element,key) => {
-    shopOneData[element.id] = {
-      id:element.id,
-      name:element.name,
-      price:element.price,
-      amount:element.amount,
-    }
-    if (key > 0) {
-      if (shopOneData[element.id].id == element.id) {
-        shopOneData[element.id].amount += element.amount
-      }
-    }
-  });
-  shopOneData = shopOneData.slice(1);
   
   return (
     <div>
       <div className="shopOne">
-        <div><pre>{JSON.stringify(shopOneData, null, 2) }</pre></div>
+        <div><pre>{JSON.stringify(data, null, 2) }</pre></div>
       </div>
     </div>
   );
